@@ -9,15 +9,21 @@
     
     <!-- Styles -->
     <link href="<?php echo base_url() ?>assets/css/bootstrap.css" rel="stylesheet">
-    <link href="<?php echo base_url() ?>assets/css/bootstrap-responsive.css" rel="stylesheet">
     
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
-    <script src="<?php echo base_url() ?>assets/js/html5shiv.js"></script>
+    	<script src="<?php echo base_url() ?>assets/js/html5shiv.js"></script>
+		<script src="<?php echo base_url() ?>assets/js/respond.min.js"></script>
     <![endif]-->    
+    
 	<style type="text/css">
-		body {padding-top: 60px; padding-bottom: 40px;}
-		.container-narrow {margin: 0 auto;max-width: 1000px;}  
+		body {padding-top: 60px; padding-bottom: 20px;}
+		.footer {
+			padding-left: 15px;
+			padding-right: 15px;			
+			color: #777;
+		}
+		.container-narrow {margin: 0 auto;max-width: 1024px;}  
 		.form-signin {
 			text-align:center;
 			max-width: 250px;
@@ -35,26 +41,26 @@
 		.form-signin .form-signin-heading, .form-signin .checkbox {margin-bottom: 10px;}
 		.form-signin input[type="text"], .form-signin input[type="password"] {font-size: 16px; height: auto; margin-bottom: 15px; padding: 7px 9px;}
 		td.nodata {text-align:center}
+		.nav-tabs {margin-bottom:10px}
     </style>    
 </head>
 <body>
-	<?php if($this->session->userdata('logged_in') === TRUE): ?>
+	<?php if($this->session->userdata('logged_in') === TRUE): ?>    
     <!--NavBar-->
-	<div class="navbar navbar-fixed-top">
-    	<div class="navbar-inner">
-        	<div class="container-narrow">
-				<a class="brand" href="<?php echo site_url(); ?>">Presensi Karyawan | Admin</a>                
-                <!--User Menu-->
-                <a href="<?php echo site_url('logout'); ?>" class="btn btn-small btn-info pull-right"><i class="icon-off"></i> Logout</a>                    
-                <h5 class="pull-right" style="margin-right:10px">Hai, <?php echo $this->session->userdata('user') ?></h5>
-                <!--End User Menu-->
-            </div>
+	<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    	<div class="container-narrow">
+        <div class="navbar-header">        
+        	<a class="navbar-brand" href="<?php echo site_url(); ?>">Presensi Karyawan | Admin</a>
         </div>
-    </div>
+        <a href="<?php echo site_url('logout'); ?>"><button type="button" class="btn btn-default btn-info navbar-right" style="margin-top:7px"><i class="glyphicon glyphicon-off"></i> Logout</button></a>
+        <p class="navbar-text navbar-right">Hai, <?php echo $this->session->userdata('user') ?></p>        
+        </div>
+    </nav>
     <!--End NavBar--> 
+    
     <div class="container-narrow">
-        <div class="row-fluid" style="min-height:490px;">
-            <div class="span4">
+        <div class="row" style="min-height:490px;">
+            <div class="col-lg-4">
            		<div class="well sidebar-nav">                    
                 <ul class="nav nav-list">
                     <li class="nav-header">Main Menu</li>                            
@@ -63,9 +69,9 @@
                 </ul>                       
                 </div>
             </div>
-            <div class="span8">          
-                <div class="row-fluid">
-                    <div class="span12">
+            <div class="col-lg-8">          
+                <div class="row">
+                    <div class="col-lg-12">
                     	<?php $this->load->view('admin/'.$main_content); ?>
                     </div>
                 </div>
@@ -79,11 +85,11 @@
     </div>  
     <?php else: ?>
     <div class="container">
-        <form action="" method="post" class="form-signin">
+        <form action="" method="post" class="form-signin" role="form">
             <legend class="form-signin-heading">Admin Login</legend>
-            <input type="text" name="username" value="" class="input-block-level" placeholder="Username">
-            <input type="password" name="password" value="" class="input-block-level" placeholder="Password">
-            <input type="submit" name="login" value="Login" class="btn btn-info span2" />
+            <input type="text" name="username" value="" class="form-control" placeholder="Username">
+            <input type="password" name="password" value="" class="form-control" placeholder="Password">
+            <input type="submit" name="login" value="Login" class="btn btn-info" />
         </form>
     </div>
     <?php endif ?>

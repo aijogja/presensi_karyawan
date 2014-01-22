@@ -34,12 +34,14 @@ class Presensi extends CI_Controller {
 		$keluar = array();
 		$cuti = array();
 		$ijin = array();
-		foreach($data_query as $dt){
-			 $nama[] = $dt['nama'];
-			 $masuk[] = $dt['total_masuk'];
-			 $keluar[] = $dt['total_keluar'];
-			 $cuti[] = $dt['total_cuti'];
-			 $ijin[] = $dt['total_ijin'];
+		if($data_query){
+			foreach($data_query as $dt){
+				 $nama[] = $dt['nama'];
+				 $masuk[] = $dt['total_masuk'];
+				 $keluar[] = $dt['total_keluar'];
+				 $cuti[] = $dt['total_cuti'];
+				 $ijin[] = $dt['total_ijin'];
+			}
 		}
 		$data = array (		
 			'main_content'	=> 'presensi',

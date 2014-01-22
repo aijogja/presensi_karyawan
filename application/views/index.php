@@ -9,44 +9,26 @@
     
     <!-- Styles -->
     <link href="assets/css/bootstrap.css" rel="stylesheet">
-    <link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="assets/css/style.css" rel="stylesheet">
     
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
-    <script src="assets/js/html5shiv.js"></script>
-    <![endif]-->    
-	<style type="text/css">
-		body {
-			padding-top: 20px;
-		}
-		/* Custom container */
-		.container-narrow {
-			margin: 0 auto;
-			max-width: 900px;
-		}   
-		/* Supporting marketing content */
-		.main-content {
-			margin: 20px 0;
-			min-height:450px;
-		}
-		.content-item {
-			margin-top: 10px;
-		}
-    </style>    
+      <script src="assets/js/html5shiv.js"></script>
+      <script src="assets/js/respond.min.js"></script>
+    <![endif]-->     
 </head>
 <body>
-<div class="container-narrow">
-    <div>        
-        <h3 class="muted">Presensi Karyawan</h3>
-    </div>
-    
-    <hr>
-    <div class="row-fluid main-content">
-        <div class="span7">
+<div class="container">
+<div class="header">
+<h3 class="text-muted">Presensi Karyawan</h3>
+</div>
+
+	<div class="row main-content">
+        <div class="col-lg-7">
         
         <!-- Menampilkan Error -->
         <?php if(validation_errors()): ?>
-            <div class="alert alert-error">
+            <div class="alert alert-danger">
             <button type="button" class="close" data-dismiss="alert">&times;</button>
             <?php echo validation_errors(); ?>
             </div>
@@ -62,39 +44,47 @@
         </div>
         <?php endif; ?>
         <!-- End Menampilkan Flashdata -->
- 
-        <form action="" method="post" class="form-horizontal">
-            <div class="control-group">
-                <label class="control-label">NIP</label>
-                <div class="controls">
-                    <input type="text" name="nip" placeholder="NIP" value="<?php echo set_value('nip'); ?>">
+  
+        <form action="" method="post" class="form-horizontal" role="form">
+            <div class="form-group">
+                <label class="col-sm-2 control-label">NIP</label>
+                <div class="col-sm-10">
+                    <input type="text" name="nip" class="form-control" placeholder="NIP" value="<?php echo set_value('nip'); ?>">
                 </div>
             </div>
-            <div class="control-group">
-                <label class="control-label">Jenis</label>
-                <div class="controls">
-                    <label class="radio">
-                        <input type="radio" name="jenis" value="masuk" <?php echo set_radio('jenis', 'masuk'); ?>> Masuk                
-                    </label>
-                    <label class="radio">
-                        <input type="radio" name="jenis" value="keluar" <?php echo set_radio('jenis', 'keluar'); ?>>Keluar
-                    </label>                    
-                    <label class="radio">
-                        <input type="radio" name="jenis" value="cuti" <?php echo set_radio('jenis', 'cuti'); ?>>Cuti
-                    </label>                    
-                    <label class="radio">
-                        <input type="radio" name="jenis" value="ijin" <?php echo set_radio('jenis', 'ijin'); ?>>Ijin
-                    </label>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Jenis</label>
+                <div class="col-sm-10">                
+                    <div class="radio">
+                        <label>
+                            <input type="radio" name="jenis" value="masuk" <?php echo set_radio('jenis', 'masuk'); ?>> Masuk                
+                        </label>
+                    </div>
+                    <div class="radio">
+                        <label>
+                            <input type="radio" name="jenis" value="keluar" <?php echo set_radio('jenis', 'keluar'); ?>>Keluar
+                        </label>                    
+                    </div>                
+                    <div class="radio">
+                        <label>
+                            <input type="radio" name="jenis" value="cuti" <?php echo set_radio('jenis', 'cuti'); ?>>Cuti
+                        </label>                    
+                    </div>                
+                    <div class="radio">
+                        <label>
+                            <input type="radio" name="jenis" value="ijin" <?php echo set_radio('jenis', 'ijin'); ?>>Ijin
+                        </label>                    
+                    </div>
                 </div>
             </div>
-            <div class="control-group">
-                <label class="control-label">Password</label>
-                <div class="controls">
-                    <input type="password" name="password" placeholder="Password">
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Password</label>
+                <div class="col-sm-10">
+                    <input type="password" class="form-control" name="password" placeholder="Password">
                 </div>
             </div>
-            <div class="control-group">
-                <div class="controls">
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
                     <input type="submit" class="btn btn-success" value="Enter">
                 </div>
             </div>
@@ -102,7 +92,7 @@
             
         </div>
         
-        <div class="span5 well">
+        <div class="col-lg-5 well">
         	<?php if($data_presensi): ?>
             <?php foreach($data_presensi as $dp): ?>
         	<div class="content-item">
@@ -113,11 +103,12 @@
             <?php endif ?>            
         </div>
     </div> 
-       
-    <hr>
+
+	<hr>
     <div class="footer">
     	<p>&copy; Workshop 2014</p>
-    </div>    
+    </div> 
+
 </div> <!-- /container -->
 <!-- Javascript -->
 <script src="assets/js/jquery.js"></script>

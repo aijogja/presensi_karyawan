@@ -53,7 +53,7 @@ if($this->session->flashdata('sukses')):
             <?php endforeach; ?>
         <?php else: ?>
         		<tr>	
-                    <td colspan="7" class="nodata muted">No Data</td>
+                    <td colspan="7" class="nodata text-muted">No Data</td>
                 </tr>
         <?php endif; ?>        
     </tbody>

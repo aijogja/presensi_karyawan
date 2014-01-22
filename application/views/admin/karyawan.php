@@ -22,7 +22,7 @@ if($this->session->flashdata('sukses')):
 <!-- End Menampilkan Tab -->
 
 <?php if(validation_errors()): ?>
-	<div class="alert alert-error">
+	<div class="alert alert-danger">
     <button type="button" class="close" data-dismiss="alert">&times;</button>
     <?php echo validation_errors(); ?>
     </div>
@@ -30,32 +30,22 @@ if($this->session->flashdata('sukses')):
 
 <?php if($this->uri->segment(3)=='add' || $this->uri->segment(3)=='edit'): ?>
                 
-	<form action="" method="post">
-        <fieldset> 
-        <div class="control-group">
-            <label class="control-label">NIP</label>               
-            <div class="controls">             
-            <input type="text" name="nip" value="<?php echo set_value('nip', isset($default['nip'])?$default['nip']:''); ?>" />
-        	</div> 
+	<form action="" method="post" role="form">        
+        <div class="form-group">
+            <label class="control-label">NIP</label>                          
+            <input type="text" class="form-control" name="nip" value="<?php echo set_value('nip', isset($default['nip'])?$default['nip']:''); ?>" />
         </div> 
-        <div class="control-group">
-            <label class="control-label">Nama</label>               
-            <div class="controls">             
-            <input type="text" name="nama" value="<?php echo set_value('nama', isset($default['nama'])?$default['nama']:''); ?>" />
-        	</div> 
+        <div class="form-group">
+            <label class="control-label">Nama</label>                            
+            <input type="text" class="form-control" name="nama" value="<?php echo set_value('nama', isset($default['nama'])?$default['nama']:''); ?>" />
         </div> 
-        <div class="control-group">
+        <div class="form-group">
             <label class="control-label">Password</label>               
-            <div class="controls">             
-            <input type="text" name="password" value="<?php echo set_value('password', isset($default['password'])?$default['password']:''); ?>" />
-        	</div> 
+            <input type="text" class="form-control" name="password" value="<?php echo set_value('password', isset($default['password'])?$default['password']:''); ?>" />
         </div>              	                    	                   
-        <div class="control-group">
-            <div class="controls">
+        <div class="form-group">
             <button type="submit" class="btn btn-primary">Simpan</button>
-            </div>
         </div>
-        </fieldset>
     </form>
     
 <?php else: ?>
@@ -79,14 +69,15 @@ if($this->session->flashdata('sukses')):
                     <td><?php echo $dt['nama'] ?></td>
                     <td>
                     	<div class="btn-group">
-                        <a href="<?php echo site_url('admin/karyawan/edit/'.$dt['idkaryawan']); ?>" class="btn btn-info btn-mini">Edit</a>
-                   		<a href="<?php echo site_url('admin/karyawan/delete/'.$dt['idkaryawan']); ?>" onclick="return confirmDelete()" class="btn btn-danger btn-mini">Delete</a>                        
+                        <a href="<?php echo site_url('admin/karyawan/edit/'.$dt['idkaryawan']); ?>" class="btn btn-info btn-xs">Edit</a>
+                   		<a href="<?php echo site_url('admin/karyawan/delete/'.$dt['idkaryawan']); ?>" onclick="return confirmDelete()" class="btn btn-danger btn-xs">Delete</a>                      
+                        </div>  
                     </td>
                 </tr>
             <?php endforeach; ?>
         <?php else: ?>
         		<tr>	
-                    <td colspan="7" class="nodata muted">No Data</td>
+                    <td colspan="7" class="nodata text-muted">No Data</td>
                 </tr>
         <?php endif; ?>        
     </tbody>
