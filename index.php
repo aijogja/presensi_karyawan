@@ -197,6 +197,7 @@ if (defined('ENVIRONMENT'))
  * --------------------------------------------------------------------
  *
  * And away we go...
+ * ini adalah percobaaan
  *
  */
 require_once BASEPATH.'core/CodeIgniter.php';
