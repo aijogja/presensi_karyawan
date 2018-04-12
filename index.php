@@ -11,7 +11,7 @@
  *
  * This can be set to anything, but default usage is:
  *
- *     development
+ *     development  daff
  *     testing
  *     production
  *
@@ -197,6 +197,7 @@ if (defined('ENVIRONMENT'))
  * --------------------------------------------------------------------
  *
  * And away we go...
+ * ini adalah percobaaan
  *
  */
 require_once BASEPATH.'core/CodeIgniter.php';
